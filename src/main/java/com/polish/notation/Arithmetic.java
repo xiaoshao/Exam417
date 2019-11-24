@@ -23,7 +23,7 @@ public class Arithmetic {
             expression = expression.replace(operator.getOp(), " " + operator.getOp() + " ");
         }
         expression = expression.trim().replaceAll("  ", " ");
-        
+
         return expression.split(" ");
     }
 

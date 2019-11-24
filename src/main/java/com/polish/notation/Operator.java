@@ -5,22 +5,28 @@ import java.util.Map;
 
 public enum Operator {
 
-    PLUS("+", 0),
-    SUB("-", 0),
-    DIVIDE("/", 1),
-    PLUSP("*", 1),
-    MAX("max", 2),
-    MIN("min", 2),
-    LEFTQUATA("(", 3),
-    RIGHTTQUATA(")", 3),
-    DOT(",", 4);
+    MAX("max", 0),
+    MIN("min", 0),
+    PLUS("+", 10),
+    SUB("-", 10),
+    DIVIDE("/", 20),
+    PLUSP("*", 20);
+
+//    LEFTQUATA("(", 3),
+//    RIGHTTQUATA(")", 3),
+//    DOT(",", 4);
 
     private static final Map<String, Operator> keyMap = new HashMap<String, Operator>();
-
     static {
         for (Operator item : Operator.values()) {
             keyMap.put(item.getOp(), item);
         }
+    }
+
+    private static String regular = "[-+*/(),]|max|min";
+
+    public static String getAllOperationsRegular() {
+        return regular;
     }
 
     private String op;
