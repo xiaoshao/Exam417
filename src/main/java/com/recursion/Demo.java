@@ -25,18 +25,21 @@ public class Demo {
     }
 
     public void reverseString(char[] s) {
-        helper(s.length - 2, s);
+        helper(s.length - 1, s[s.length - 1], s);
     }
 
-    public void helper(int index, char[] s) {
+    public void helper(int index, char item, char[] s) {
         if (index < 0) {
             return;
         }
 
-        helper(index - 1, s);
+        if (index == 0) {
+            s[s.length - index - 1] = item;
+            return;
+        }
 
-        char temp = s[index];
-        s[index] = s[index + 1];
-        s[index + 1] = temp;
+        helper(index - 1, s[index - 1], s);
+
+        s[s.length - index - 1] = item;
     }
 }
